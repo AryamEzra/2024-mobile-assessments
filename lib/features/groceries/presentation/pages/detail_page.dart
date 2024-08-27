@@ -24,13 +24,13 @@ class DetailsPage extends StatelessWidget {
         child: BlocBuilder<DetailsBloc, DetailsState>(
           builder: (context, state) {
             if (state is DetailsLoading) {
-              return const Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Colors.orange),));
             } else if (state is DetailsLoaded) {
               final grocery = state.grocery;
               return Stack(
                 children: [
                   SingleChildScrollView(
-                    padding: EdgeInsets.only(
+                    padding: const EdgeInsets.only(
                         bottom:
                             100), // Add padding to prevent overlap with BottomWidget
                     child: Column(
@@ -51,11 +51,11 @@ class DetailsPage extends StatelessWidget {
                                       fit: BoxFit.cover,
                                     ),
                                   ),
-                                  Positioned(
+                                  const Positioned(
                                       bottom: 10,
                                       right: 10,
                                       child: FavoriteWidget()),
-                                  Positioned(
+                                  const Positioned(
                                       top: 1.0,
                                       left: 1.0,
                                       child: CustomBackButtonDetailsPage()),
@@ -75,11 +75,11 @@ class DetailsPage extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 8),
+                              const SizedBox(height: 8),
                               Row(
                                 children: [
                                   Text(
-                                    '\£${grocery.price.toStringAsFixed(2)}',
+                                    '£${grocery.price.toStringAsFixed(2)}',
                                     style: const TextStyle(
                                       fontSize: 14,
                                       color: Colors.grey,
@@ -88,7 +88,7 @@ class DetailsPage extends StatelessWidget {
                                   ),
                                   const SizedBox(width: 8),
                                   Text(
-                                    '\£${grocery.discount.toStringAsFixed(2)}',
+                                    '£${grocery.discount.toStringAsFixed(2)}',
                                     style: const TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
@@ -110,9 +110,9 @@ class DetailsPage extends StatelessWidget {
                                     ),
                                   ),
                                   const SizedBox(width: 8),
-                                  Text(
+                                  const Text(
                                     '(Reviews)',
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontSize: 14,
                                       color: Colors.grey,
                                     ),
@@ -145,11 +145,11 @@ class DetailsPage extends StatelessWidget {
                                 ),
                                 ...grocery.options.map((option) => Row(
                                       children: [
-                                        Text('${option.name}'),
+                                        Text(option.name),
                                         const Spacer(), // Pushes the following widgets to the right
                                         Text(
-                                            '+ \£${option.price.toStringAsFixed(2)}'),
-                                        CustomCheckbox()
+                                            '+ £${option.price.toStringAsFixed(2)}'),
+                                        const CustomCheckbox()
                                       ],
                                     )),
                               ],
@@ -159,7 +159,7 @@ class DetailsPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Positioned(
+                  const Positioned(
                     bottom: 0,
                     left: 0,
                     right: 0,

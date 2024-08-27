@@ -10,23 +10,23 @@ class CustomSearchBar extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextField(
+        cursorColor: const Color.fromARGB(136, 92, 85, 85),
         decoration: InputDecoration(
           hintText: 'Search...',
-          hintStyle: TextStyle(
-            color: const Color.fromARGB(
-                137, 174, 163, 163), // Set the color of the hint text
+          hintStyle: const TextStyle(
+            color: Color.fromARGB(136, 92, 85, 85), // Set the color of the hint text
             fontSize: 16.0, // Set the font size of the hint text
           ),
-          prefixIcon: IconTheme(
+          prefixIcon: const IconTheme(
             data: IconThemeData(
-                color: const Color.fromARGB(
+                color: Color.fromARGB(
                     137, 174, 163, 163)), // Set color for prefix icon
-            child: const Icon(Icons.search),
+            child: Icon(Icons.search),
           ),
-          suffixIcon: IconTheme(
+          suffixIcon: const IconTheme(
             data:
-                IconThemeData(color: Colors.black), // Set color for suffix icon
-            child: const Icon(Icons.tune_rounded),
+                IconThemeData(color: Color.fromARGB(255, 47, 45, 45)), // Set color for suffix icon
+            child: Icon(Icons.tune_rounded),
           ),
           filled: true, // Enable background color
           fillColor: const Color.fromRGBO(

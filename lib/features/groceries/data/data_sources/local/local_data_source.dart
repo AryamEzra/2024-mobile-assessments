@@ -15,12 +15,12 @@ class GroceriesLocalDataSourceImpl implements GroceriesLocalDataSource {
 
   GroceriesLocalDataSourceImpl({required this.sharedPreferences});
 
-  static const CACHED_GROCERIES = 'CACHED_GROCERIES';
-  static const CACHED_GROCERY_PREFIX = 'CACHED_GROCERY_';
+  static const cachedGroceries = 'cachedGroceries';
+  static const cachedGroceryPrefix = 'CACHED_GROCERY_';
 
   @override
   Future<List<GroceriesModel>> getAllGroceries() async {
-    final jsonString = sharedPreferences.getString(CACHED_GROCERIES);
+    final jsonString = sharedPreferences.getString(cachedGroceries);
     if (jsonString != null) {
       final List<dynamic> jsonResponse = json.decode(jsonString);
       return jsonResponse.map((json) => GroceriesModel.fromJson(json)).toList();
@@ -31,7 +31,7 @@ class GroceriesLocalDataSourceImpl implements GroceriesLocalDataSource {
 
   @override
   Future<GroceriesModel> getGroceriesById(String id) async {
-    final jsonString = sharedPreferences.getString('$CACHED_GROCERY_PREFIX$id');
+    final jsonString = sharedPreferences.getString('$cachedGroceryPrefix$id');
     if (jsonString != null) {
       final Map<String, dynamic> jsonResponse = json.decode(jsonString);
       return GroceriesModel.fromJson(jsonResponse);
@@ -43,11 +43,11 @@ class GroceriesLocalDataSourceImpl implements GroceriesLocalDataSource {
   @override
   Future<void> cacheGroceries(List<GroceriesModel> groceries) async {
     final List<Map<String, dynamic>> jsonList = groceries.map((grocery) => grocery.toJson()).toList();
-    sharedPreferences.setString(CACHED_GROCERIES, json.encode(jsonList));
+    sharedPreferences.setString(cachedGroceries, json.encode(jsonList));
   }
 
   @override
   Future<void> cacheGrocery(GroceriesModel grocery) async {
-    sharedPreferences.setString('$CACHED_GROCERY_PREFIX${grocery.id}', json.encode(grocery.toJson()));
+    sharedPreferences.setString('$cachedGroceryPrefix${grocery.id}', json.encode(grocery.toJson()));
   }
 }

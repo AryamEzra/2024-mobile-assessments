@@ -39,35 +39,19 @@ class _SplashScreenState extends State<SplashScreen>
               ),
             ),
           ),
-          // Overlay gradient
-          // Container(
-          //   decoration: BoxDecoration(
-          //     gradient: LinearGradient(
-          //       colors: [
-          //         const Color.fromARGB(255, 25, 78, 239).withOpacity(0.9),
-          //         const Color.fromARGB(255, 54, 104, 255).withOpacity(0.4),
-          //       ],
-          //       begin: Alignment.bottomCenter,
-          //       end: Alignment.topCenter,
-          //     ),
-          //   ),
-          // ),
-          // Logo and text
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Spacer(flex: 25), // Add a Spacer to push the content down
-                Container(
-                  child: Text(
-                    'Welcome to',
-                    style: GoogleFonts.roboto(
-                      fontSize: 25,
-                      fontWeight: FontWeight.w600,
-                      color: const Color.fromRGBO(255, 255, 255, 1),
-                      height: 1.04,
-                      letterSpacing: 2.25,
-                    ),
+                const Spacer(flex: 25), // Add a Spacer to push the content down
+                Text(
+                  'Welcome to',
+                  style: GoogleFonts.roboto(
+                    fontSize: 25,
+                    fontWeight: FontWeight.w600,
+                    color: const Color.fromRGBO(255, 255, 255, 1),
+                    height: 1.04,
+                    letterSpacing: 2.25,
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -82,7 +66,7 @@ class _SplashScreenState extends State<SplashScreen>
                     letterSpacing: 0.72, // Calculated letter spacing
                   ),
                 ),
-                Spacer(flex: 3), // Add another Spacer to balance the layout
+                const Spacer(flex: 3), // Add another Spacer to balance the layout
               ],
             ),
           ),

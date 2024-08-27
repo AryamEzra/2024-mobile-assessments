@@ -1,5 +1,5 @@
+import 'package:assessment/core/routes/routes.dart';
 import 'package:assessment/features/groceries/domain/entities/groceries.dart';
-import 'package:assessment/features/groceries/presentation/pages/detail_page.dart';
 import 'package:assessment/features/groceries/presentation/widgets/favorite.dart';
 import 'package:flutter/material.dart';
 
@@ -16,13 +16,12 @@ class GroceryItemCard extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: InkWell(
         onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => DetailsPage(id: grocery.id),
-            ),
-          );
-        },
+  Navigator.pushNamed(
+    context,
+    Routes.details,
+    arguments: grocery.id,
+  );
+},
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
@@ -55,7 +54,7 @@ class GroceryItemCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Positioned(
+                  const Positioned(
                     top: 15,
                     right: 15,
                     child: FavoriteWidget(),
@@ -97,7 +96,7 @@ class GroceryItemCard extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          '\£${grocery.price.toStringAsFixed(2)}',
+                          '£${grocery.price.toStringAsFixed(2)}',
                           style: const TextStyle(
                             fontSize: 14,
                             color: Colors.grey,
@@ -106,7 +105,7 @@ class GroceryItemCard extends StatelessWidget {
                         ),
                         const SizedBox(width: 8),
                         Text(
-                          '\£${grocery.discount.toStringAsFixed(2)}',
+                          '£${grocery.discount.toStringAsFixed(2)}',
                           style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,

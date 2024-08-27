@@ -13,42 +13,46 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomHomePageAppBar(),
-      body: 
-      BlocProvider(
-        create: (context) =>
-            HomeBloc(getAllGroceries: GetAllGroceries(getIt()))
-              ..add(FetchGroceries()),
+      appBar: const CustomHomePageAppBar(),
+      body: BlocProvider(
+        create: (context) => HomeBloc(getAllGroceries: GetAllGroceries(getIt()))
+          ..add(FetchGroceries()),
         child: BlocBuilder<HomeBloc, HomeState>(
           builder: (context, state) {
             if (state is HomeLoading) {
-              return const Center(child: CircularProgressIndicator());
+              return const Center(
+                  child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.orange),
+              ));
             } else if (state is HomeLoaded) {
-               return Column(
+              return Column(
                 children: [
                   CustomSearchBar(
                     onChanged: (query) {
-                      context.read<HomeBloc>().add(SearchGroceries(query: query));
+                      context
+                          .read<HomeBloc>()
+                          .add(SearchGroceries(query: query));
                     },
                   ),
-                  SizedBox(height: 10,),
                   Expanded(
                     child: RefreshIndicator(
                       onRefresh: () async {
                         context.read<HomeBloc>().add(FetchGroceries());
                       },
-                    child: GridView.builder(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2, // Number of items per row
-                        childAspectRatio: 2/ 3, // Aspect ratio of each item
+                      color: Colors.orange,
+                      child: GridView.builder(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2, // Number of items per row
+                          childAspectRatio: 2 / 3, // Aspect ratio of each item
+                        ),
+                        itemCount: state.groceries.length,
+                        itemBuilder: (context, index) {
+                          final grocery = state.groceries[index];
+                          return GroceryItemCard(grocery: grocery);
+                        },
                       ),
-                      itemCount: state.groceries.length,
-                      itemBuilder: (context, index) {
-                        final grocery = state.groceries[index];
-                        return GroceryItemCard(grocery: grocery);
-                      },
                     ),
-                  ),
                   ),
                 ],
               );

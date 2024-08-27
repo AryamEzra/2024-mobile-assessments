@@ -5,12 +5,13 @@ class CustomCheckbox extends StatefulWidget {
   final ValueChanged<bool?>? onChanged;
 
   const CustomCheckbox({
-    Key? key,
+    super.key,
     this.initialValue = false,
     this.onChanged,
-  }) : super(key: key);
+  });
 
   @override
+  // ignore: library_private_types_in_public_api
   _CustomCheckboxState createState() => _CustomCheckboxState();
 }
 
@@ -38,6 +39,10 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
       value: _value,
       onChanged: _handleChanged,
       activeColor: Colors.orange,
+      shape: RoundedRectangleBorder(
+        
+        borderRadius: BorderRadius.circular(5.0), 
+      ),
     );
   }
 }

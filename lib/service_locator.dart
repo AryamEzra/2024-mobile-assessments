@@ -50,9 +50,6 @@ Future<void> setupLocator() async {
   getIt.registerFactory<HomeBloc>(
     () => HomeBloc(getAllGroceries: getIt<GetAllGroceries>()),
   );
-  // getIt.registerFactory<SearchBloc>(
-  //   () => SearchBloc(getAllGroceriess: getIt<GetAllGroceriess>()),
-  // );
 
   getIt.registerFactory(
       () => DetailsBloc(getGroceriesById: getIt<GetGroceriesById>()));

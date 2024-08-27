@@ -13,7 +13,7 @@ class CustomBackButtonDetailsPage extends StatelessWidget {
     shape: BoxShape.circle,
     color: Colors.black.withOpacity(0.1), // Offset black color
   ),
-  child: Icon(
+  child: const Icon(
     Icons.arrow_back,
     color: Colors.black,
     size: 20,

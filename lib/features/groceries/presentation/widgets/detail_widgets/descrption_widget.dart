@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 class DescriptionWidget extends StatefulWidget {
   final String description;
 
-  const DescriptionWidget({Key? key, required this.description}) : super(key: key);
+  const DescriptionWidget({super.key, required this.description});
 
   @override
+  // ignore: library_private_types_in_public_api
   _DescriptionWidgetState createState() => _DescriptionWidgetState();
 }
 

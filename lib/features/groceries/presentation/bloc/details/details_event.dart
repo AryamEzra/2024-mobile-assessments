@@ -15,9 +15,3 @@ class FetchGroceryDetails extends DetailsEvent {
   @override
   List<Object> get props => [id];
 }
-
-class ToggleFavoriteEvent extends DetailsEvent {
-  final String groceryId;
-
-  ToggleFavoriteEvent(this.groceryId);
-}
