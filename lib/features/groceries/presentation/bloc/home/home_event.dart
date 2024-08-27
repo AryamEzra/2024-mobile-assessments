@@ -8,3 +8,15 @@ sealed class HomeEvent extends Equatable {
 }
 
 class FetchGroceries extends HomeEvent {}
+
+class SearchGroceries extends HomeEvent {
+  final String query;
+
+  SearchGroceries({required this.query});
+}
+
+class ToggleFavoriteEvent extends HomeEvent {
+  final String groceryId;
+
+  ToggleFavoriteEvent(this.groceryId);
+}

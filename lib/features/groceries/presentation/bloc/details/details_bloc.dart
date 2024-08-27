@@ -19,4 +19,5 @@ class DetailsBloc extends Bloc<DetailsEvent, DetailsState> {
       );
     });
   }
+  
 }

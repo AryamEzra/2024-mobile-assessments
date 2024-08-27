@@ -18,5 +18,18 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         (groceries) => emit(HomeLoaded(groceries: groceries)),
       );
     });
+
+    on<SearchGroceries>((event, emit) async {
+      if (event.query.isEmpty) {
+        // Re-fetch all groceries if the search query is empty
+        add(FetchGroceries());
+      } else if (state is HomeLoaded) {
+        final filteredGroceries = (state as HomeLoaded).groceries.where((grocery) {
+          return grocery.title.toLowerCase().contains(event.query.toLowerCase());
+        }).toList();
+        emit(HomeLoaded(groceries: filteredGroceries));
+      }
+    });
   }
 }
+

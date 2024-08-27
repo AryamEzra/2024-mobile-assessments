@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -15,10 +17,10 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
 
-    // Timer(const Duration(seconds: 3), () {
-    //   // Navigator.pushReplacementNamed(context, '/home');
+    Timer(const Duration(seconds: 3), () {
+      Navigator.pushReplacementNamed(context, '/home');
 
-    // });
+    });
   }
 
   @override
