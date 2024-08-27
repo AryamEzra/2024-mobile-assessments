@@ -17,7 +17,7 @@ class AddToBasketButton extends StatelessWidget {
       label: const Text('Add to Basket', style: TextStyle(color: Colors.white)),
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 24.0),
-        backgroundColor: Colors.orange,
+        backgroundColor: Color.fromRGBO(255, 99, 71, 1),
       ),
     );
   }

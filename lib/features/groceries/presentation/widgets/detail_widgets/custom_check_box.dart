@@ -38,7 +38,7 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
     return Checkbox(
       value: _value,
       onChanged: _handleChanged,
-      activeColor: Colors.orange,
+      activeColor: Color.fromRGBO(255, 99, 71, 1),
       shape: RoundedRectangleBorder(
         
         borderRadius: BorderRadius.circular(5.0), 

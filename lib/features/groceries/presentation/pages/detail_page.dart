@@ -24,7 +24,7 @@ class DetailsPage extends StatelessWidget {
         child: BlocBuilder<DetailsBloc, DetailsState>(
           builder: (context, state) {
             if (state is DetailsLoading) {
-              return const Center(child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Colors.orange),));
+              return const Center(child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Color.fromRGBO(255, 99, 71, 1)),));
             } else if (state is DetailsLoaded) {
               final grocery = state.grocery;
               return Stack(

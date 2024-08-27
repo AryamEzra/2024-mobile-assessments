@@ -16,7 +16,7 @@ class CustomHomePageAppBar extends StatelessWidget implements PreferredSizeWidge
         ],
       ),
       centerTitle: true,
-      backgroundColor: Colors.orange,
+      backgroundColor: const Color.fromRGBO(255, 99, 71, 1),
     );
   }
 

@@ -34,8 +34,8 @@ class MyBasketPage extends StatelessWidget {
                 OutlinedButton(
                   onPressed: () {},
                   style: OutlinedButton.styleFrom(
-                    foregroundColor: Colors.orange,
-                    side: const BorderSide(color: Colors.orange, width: 2.0),
+                    foregroundColor: Color.fromRGBO(255, 99, 71, 1),
+                    side: const BorderSide(color: Color.fromRGBO(255, 99, 71, 1), width: 2.0),
                   ),
                   child: const Text('Add Items'),
                 ),
@@ -98,7 +98,7 @@ class MyBasketPage extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.orange,
+                      backgroundColor: Color.fromRGBO(255, 99, 71, 1),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30.0),
                       ),

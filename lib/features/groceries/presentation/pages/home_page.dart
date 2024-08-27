@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
             if (state is HomeLoading) {
               return const Center(
                   child: CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.orange),
+                valueColor: AlwaysStoppedAnimation<Color>(Color.fromRGBO(255, 99, 71, 1)),
               ));
             } else if (state is HomeLoaded) {
               return Column(
@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
                       onRefresh: () async {
                         context.read<HomeBloc>().add(FetchGroceries());
                       },
-                      color: Colors.orange,
+                      color: Color.fromRGBO(255, 99, 71, 1),
                       child: GridView.builder(
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
