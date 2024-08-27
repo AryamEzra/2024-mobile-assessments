@@ -7,7 +7,6 @@ A new Flutter project.
 
 ### Home Page
 ![photo_6_2024-08-27_18-28-49](https://github.com/user-attachments/assets/107b19f6-6180-4e3e-bf6d-2efbb3ce03ba)
-![photo_1_2024-08-27_18-28-49](https://github.com/user-attachments/assets/35fac0b3-3946-489e-9caa-639d7e63b7b6)
 ![photo_3_2024-08-27_18-28-49](https://github.com/user-attachments/assets/18c6fc76-4bd4-47fb-b9fe-c21d76462f2c)
 ![photo_2_2024-08-27_18-28-49](https://github.com/user-attachments/assets/47350a66-6860-4a03-b8e1-f420902fb409)
 
